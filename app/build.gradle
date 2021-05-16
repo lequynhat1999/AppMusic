@@ -42,4 +42,26 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+
+
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    dependencies {
+        implementation 'me.relex:circleindicator:1.2.2@aar'
+    }
+    dependencies {
+        implementation 'com.eftimoff:android-viewpager-transformers:1.0.1@aar'
+    }
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:cardview-v7:28.0.0'
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:28.0.0'
+
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+
 }
