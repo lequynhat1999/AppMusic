@@ -8,7 +8,7 @@ import retrofit2.http.POST;
 public interface DataClient { // interface dùng để gửi nhận các phương thức tới server
 
     @FormUrlEncoded // sử dụng phương thức post, gửi dữ liệu lên dưới dạng chuỗi
-    @POST("insert.php")
+    @POST("insert.php") // gán vào đuôi file php
     Call<String> InsertData(@Field("fullname") String fullname // @Field để truyền dữ liệu lên cho server
                             ,@Field("username") String username
                             ,@Field("password") String password

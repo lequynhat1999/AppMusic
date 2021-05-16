@@ -27,7 +27,7 @@ public class RetrofitClient {
         retrofit = new Retrofit.Builder()
                 .baseUrl(baseurl)// khởi tạo nhờ vào 1 url - đường dẫn cơ sở để khởi tạo retrofit
                 .client(builder) // kiểm soát okhttpclient, những thuộc tính mình đã set cho retrofit thì gọi qua thuộc tính client
-                .addConverterFactory(GsonConverterFactory.create(gson)) // khi có dữ liệu trên json, muốn chuyển dữ liệu về dạng gson và từ gson về biến của java
+                .addConverterFactory(GsonConverterFactory.create(gson)) // khi có dữ liệu dạng json, muốn chuyển dữ liệu về dạng gson và từ gson về biến của java
                 .build();
 
         return  retrofit;

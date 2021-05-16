@@ -53,7 +53,7 @@ public class SignUpActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) { // thành công
                             String result = response.body(); // lấy dữ liệu ra
-                            if(result != null) // success được echo bên php
+                            if(result.equals("success")) // success được echo bên php
                             {
                                 Toast.makeText(SignUpActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                                 finish();
