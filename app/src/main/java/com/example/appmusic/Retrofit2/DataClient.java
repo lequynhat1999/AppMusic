@@ -1,5 +1,9 @@
 package com.example.appmusic.Retrofit2;
 
+import com.example.appmusic.User;
+
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -13,5 +17,11 @@ public interface DataClient { // interface dùng để gửi nhận các phươn
                             ,@Field("username") String username
                             ,@Field("password") String password
                             ,@Field("email") String email); // tạo 1 phương thức post để gửi dữ liệu lên server
+
+
+    @FormUrlEncoded
+    @POST("login.php")
+    Call<List<User>> LoginData(@Field("username") String username
+                                ,@Field("password") String password); // tương tác với phía server, đẩy dữ liệu từ client lên server
 
 }
