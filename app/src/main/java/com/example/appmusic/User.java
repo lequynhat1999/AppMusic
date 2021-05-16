@@ -4,8 +4,10 @@ package com.example.appmusic;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 //@Generated("jsonschema2pojo")
-public class User { // convert những biến trong json về dạng biến của java
+public class User  implements Serializable { // convert những biến trong json về dạng biến của java
 
         @SerializedName("Id") //convert từ json về java
         @Expose                // thực hiện phương thức convert về

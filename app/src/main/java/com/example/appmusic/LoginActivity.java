@@ -56,9 +56,11 @@ public class LoginActivity extends AppCompatActivity {
                             ArrayList<User> arrUser = (ArrayList<User>) response.body();
                             if(arrUser.size() > 0)
                             {
-                                Log.d("login",arrUser.get(0).getUser());
-                                Log.d("login",arrUser.get(0).getPass());
+
                                 Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.putExtra("fullname",arrUser.get(0).getName());
+                                startActivity(intent);
                             }
 
                         }
