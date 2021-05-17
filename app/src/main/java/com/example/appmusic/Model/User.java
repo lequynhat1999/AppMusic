@@ -1,4 +1,4 @@
-package com.example.appmusic;
+package com.example.appmusic.Model;
 
 //import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;

@@ -1,4 +1,4 @@
-package com.example.appmusic;
+package com.example.appmusic.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,8 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appmusic.R;
 import com.example.appmusic.Retrofit2.APIUtils;
 import com.example.appmusic.Retrofit2.DataClient;
+import com.example.appmusic.Model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         textViewCreatAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,SignUpActivity.class);
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
         });

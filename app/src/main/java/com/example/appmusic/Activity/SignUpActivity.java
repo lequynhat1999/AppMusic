@@ -1,4 +1,4 @@
-package com.example.appmusic;
+package com.example.appmusic.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appmusic.R;
 import com.example.appmusic.Retrofit2.APIUtils;
 import com.example.appmusic.Retrofit2.DataClient;
 
@@ -34,7 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
         textViewShortcut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignUpActivity.this,LoginActivity.class);
+                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

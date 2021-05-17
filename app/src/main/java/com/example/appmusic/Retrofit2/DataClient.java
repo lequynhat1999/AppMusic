@@ -1,12 +1,14 @@
 package com.example.appmusic.Retrofit2;
 
-import com.example.appmusic.User;
+import com.example.appmusic.Model.Quangcao;
+import com.example.appmusic.Model.User;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface DataClient { // interface dùng để gửi nhận các phương thức tới server
@@ -23,5 +25,10 @@ public interface DataClient { // interface dùng để gửi nhận các phươn
     @POST("login.php")
     Call<List<User>> LoginData(@Field("username") String username
                                 ,@Field("password") String password); // tương tác với phía server, đẩy dữ liệu từ client lên server
+
+
+
+    @GET("songbanner.php")
+    Call<List<Quangcao>>  GetDataBanner(); // chỉ đọc dữ liệu trên server về nên k cần truyền lên
 
 }
