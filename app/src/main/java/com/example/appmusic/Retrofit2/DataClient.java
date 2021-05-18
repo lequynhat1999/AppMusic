@@ -1,5 +1,6 @@
 package com.example.appmusic.Retrofit2;
 
+import com.example.appmusic.Model.Playlist;
 import com.example.appmusic.Model.Quangcao;
 import com.example.appmusic.Model.User;
 
@@ -30,5 +31,8 @@ public interface DataClient { // interface dùng để gửi nhận các phươn
 
     @GET("songbanner.php")
     Call<List<Quangcao>>  GetDataBanner(); // chỉ đọc dữ liệu trên server về nên k cần truyền lên
+
+    @GET("playlist.php")
+    Call<List<Playlist>> GetDataPlaylist();
 
 }

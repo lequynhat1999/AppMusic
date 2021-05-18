@@ -25,9 +25,10 @@
             android:id="@+id/indicatordefault"
             android:layout_width="wrap_content"
             android:layout_height="13dp"
-            android:layout_marginStart="19dp"
-            android:layout_marginLeft="19dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            app:ci_drawable="@drawable/circleindicator_round"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
