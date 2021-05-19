@@ -1,16 +1,19 @@
 package com.example.appmusic.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.example.appmusic.Activity.ListSongActivity;
 import com.example.appmusic.Model.Quangcao;
 import com.example.appmusic.R;
 import com.squareup.picasso.Picasso;
@@ -58,6 +61,15 @@ public class BannerAdapter extends PagerAdapter {
         ConstraintLayout constraintLayout = view.findViewById(R.id.constraintBottom);
         constraintLayout.setAlpha(0.6f);
 
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ListSongActivity.class);
+                intent.putExtra("banner",arrListBanner.get(position));
+                context.startActivity(intent);
+            }
+        });
+        
         container.addView(view); // add giá trị view vào trong viewPager
         return view;
     }
