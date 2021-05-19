@@ -2,6 +2,8 @@ package com.example.appmusic.Retrofit2;
 
 import com.example.appmusic.Model.Playlist;
 import com.example.appmusic.Model.Quangcao;
+import com.example.appmusic.Model.TheLoai;
+import com.example.appmusic.Model.TheLoaiChuDe;
 import com.example.appmusic.Model.User;
 
 import java.util.List;
@@ -34,5 +36,8 @@ public interface DataClient { // interface dùng để gửi nhận các phươn
 
     @GET("playlist.php")
     Call<List<Playlist>> GetDataPlaylist();
+
+    @GET("chude_theloai.php")
+    Call<TheLoaiChuDe> GetDataTheLoaiChuDe();
 
 }

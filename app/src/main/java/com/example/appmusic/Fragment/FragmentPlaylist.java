@@ -70,7 +70,7 @@ public class FragmentPlaylist extends Fragment {
         });
     }
 
-    public void setListViewHeightBasedOnChildren(ListView listView) {
+    public void setListViewHeightBasedOnChildren(ListView listView) { // func này dùng để set cứng lại chiều cao của listView, nếu k thì sẽ k scroll được toàn bộ màn hình
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) {
             // pre-condition
