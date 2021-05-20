@@ -48,4 +48,7 @@ public interface DataClient { // interface dùng để gửi nhận các phươn
     @GET("whiteList.php")
     Call<List<WhiteList>> GetDataWhiteList();
 
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<WhiteList>> GetDataDanhSachBaiHatTheoQuangCao(@Field("idquangcao") String idquangcao);
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:elevation="5dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_margin="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewDanhSachInDex"
+            android:text="1"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:id="@+id/textViewNameSong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="250dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:layout_toRightOf="@+id/textViewDanhSachInDex"
+            android:text="Ten ca khuc"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewNameMusical"
+            android:layout_below="@+id/textViewNameSong"
+            android:layout_toRightOf="@+id/textViewDanhSachInDex"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#999966"
+            android:text="Duc phuc"
+            android:textSize="20sp"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/iconlove"
+            android:layout_height="30dp"
+            android:id="@+id/imageViewLuotThichDanhSachBaiHat"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
