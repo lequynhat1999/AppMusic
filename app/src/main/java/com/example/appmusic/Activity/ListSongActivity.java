@@ -18,7 +18,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.appmusic.Adapter.DanhSachBaiHatAdapter;
+import com.example.appmusic.Model.Playlist;
 import com.example.appmusic.Model.Quangcao;
+import com.example.appmusic.Model.TheLoai;
 import com.example.appmusic.Model.WhiteList;
 import com.example.appmusic.R;
 import com.example.appmusic.Retrofit2.APIUtils;
@@ -39,6 +41,8 @@ import retrofit2.Response;
 
 public class ListSongActivity extends AppCompatActivity {
     Quangcao quangcao;
+    Playlist playlist;
+    TheLoai theLoai;
     CoordinatorLayout coordinatorLayout;
     CollapsingToolbarLayout collapsingToolbarLayout;
     Toolbar toolbar;
@@ -60,6 +64,59 @@ public class ListSongActivity extends AppCompatActivity {
             setValueInView(quangcao.getTenBaiHat(),quangcao.getHinhAnh());
             GetDataQuangCao(quangcao.getIdQuangCao());
         }
+
+        if(playlist != null && !playlist.getTen().equals(""))
+        {
+            setValueInView(playlist.getTen(),playlist.getHinhPlayList());
+            GetDataPlayList(playlist.getIdPlayList());
+        }
+
+        if(theLoai !=null && !theLoai.getTenTheLoai().equals(""))
+        {
+            setValueInView(theLoai.getTenTheLoai(),theLoai.getHinhTheLoai());
+            GetDataTheLoai(theLoai.getIdTheLoai());
+        }
+    }
+
+    private void GetDataTheLoai(String idtheloai) {
+        DataClient dataClient = APIUtils.getData();
+        Call<List<WhiteList>> callback = dataClient.GetDataDanhSachBaiHatTheoTheLoai(idtheloai);
+        callback.enqueue(new Callback<List<WhiteList>>() {
+            @Override
+            public void onResponse(Call<List<WhiteList>> call, Response<List<WhiteList>> response) {
+                arrSong = (ArrayList<WhiteList>) response.body();
+                danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(ListSongActivity.this,arrSong);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListSongActivity.this);
+                recyclerViewListSong.setLayoutManager(linearLayoutManager);
+                recyclerViewListSong.setAdapter(danhSachBaiHatAdapter);
+                }
+
+            @Override
+            public void onFailure(Call<List<WhiteList>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void GetDataPlayList(String idplaylist) {
+        DataClient dataClient = APIUtils.getData();
+        Call<List<WhiteList>> callback = dataClient.GetDataDanhSachBaiHatTheoPlayList(idplaylist);
+        callback.enqueue(new Callback<List<WhiteList>>() {
+            @Override
+            public void onResponse(Call<List<WhiteList>> call, Response<List<WhiteList>> response) {
+                arrSong = (ArrayList<WhiteList>) response.body();
+                danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(ListSongActivity.this,arrSong);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListSongActivity.this);
+                recyclerViewListSong.setLayoutManager(linearLayoutManager);
+                recyclerViewListSong.setAdapter(danhSachBaiHatAdapter);
+
+            }
+
+            @Override
+            public void onFailure(Call<List<WhiteList>> call, Throwable t) {
+
+            }
+        });
     }
 
     private void GetDataQuangCao(String idquangcao) {
@@ -129,6 +186,16 @@ public class ListSongActivity extends AppCompatActivity {
             if(intent.hasExtra("banner"))
             {
                 quangcao = (Quangcao) intent.getSerializableExtra("banner");
+            }
+
+            if (intent.hasExtra("itemPlaylist"))
+            {
+                playlist = (Playlist) intent.getSerializableExtra("itemPlaylist");
+            }
+
+            if(intent.hasExtra("idtheloai"))
+            {
+                theLoai = (TheLoai) intent.getSerializableExtra("idtheloai");
             }
         }
     }

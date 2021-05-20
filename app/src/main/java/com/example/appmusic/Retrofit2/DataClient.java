@@ -1,6 +1,7 @@
 package com.example.appmusic.Retrofit2;
 
 import com.example.appmusic.Model.Album;
+import com.example.appmusic.Model.ChuDe;
 import com.example.appmusic.Model.Playlist;
 import com.example.appmusic.Model.Quangcao;
 import com.example.appmusic.Model.TheLoai;
@@ -51,4 +52,18 @@ public interface DataClient { // interface dùng để gửi nhận các phươn
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
     Call<List<WhiteList>> GetDataDanhSachBaiHatTheoQuangCao(@Field("idquangcao") String idquangcao);
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<WhiteList>> GetDataDanhSachBaiHatTheoPlayList(@Field("idplaylist") String idplaylist);
+
+    @GET("listPlaylist.php")
+    Call<List<Playlist>> GetDataListPlayList();
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<WhiteList>> GetDataDanhSachBaiHatTheoTheLoai(@Field("idtheloai") String idtheloai);
+
+    @GET("ListChuDe.php")
+    Call<List<ChuDe>> GetDataListChuDe();
 }

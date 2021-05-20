@@ -12,8 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMusic"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.ListSongActivity"></activity>
-        <activity android:name=".Activity.SignUpActivity"></activity>
+        <activity android:name=".Activity.ListChuDeActivity"></activity>
+        <activity android:name=".Activity.ListPlayListActivity" />
+        <activity android:name=".Activity.ListSongActivity" />
+        <activity android:name=".Activity.SignUpActivity" />
         <activity android:name=".Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.MainActivity"></activity>
+        <activity android:name=".Activity.MainActivity" />
     </application>
 
 </manifest>

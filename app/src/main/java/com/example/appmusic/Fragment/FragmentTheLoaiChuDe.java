@@ -1,5 +1,6 @@
 package com.example.appmusic.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,8 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.example.appmusic.Activity.ListChuDeActivity;
+import com.example.appmusic.Activity.ListSongActivity;
 import com.example.appmusic.Model.ChuDe;
 import com.example.appmusic.Model.TheLoai;
 import com.example.appmusic.Model.TheLoaiChuDe;
@@ -39,6 +42,13 @@ public class FragmentTheLoaiChuDe extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_chude_theloai,container,false);
         Mapping();
+        textViewViewMoreChuDeTheLoai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ListChuDeActivity.class);
+                startActivity(intent);
+            }
+        });
         GetData();
         return view;
     }
@@ -86,7 +96,7 @@ public class FragmentTheLoaiChuDe extends Fragment {
 
                 }
 
-                for(int j =0; j<arrChuDe.size();j++)
+                for(int j =0; j<arrTheLoai.size();j++)
                 {
                     CardView cardView = new CardView(getActivity()); //view này bo xung quanh
                     cardView.setRadius(10);
@@ -100,6 +110,18 @@ public class FragmentTheLoaiChuDe extends Fragment {
                     cardView.setLayoutParams(layoutParams); //set kích thước cho cardView
                     cardView.addView(imageView); //truyền imageView vào trong cardView
                     linearLayout.addView(cardView); // add cardView vào trong ViewGroup
+                    int finalJ = j;
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getActivity(), ListSongActivity.class);
+                            intent.putExtra("idtheloai",arrTheLoai.get(finalJ));
+                            startActivity(intent);
+
+
+                        }
+                    });
+
                 }
                 horizontalScrollView.addView(linearLayout); // add viewGroup vào trong horizontal
             }
