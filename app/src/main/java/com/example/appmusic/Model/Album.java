@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 //@Generated("jsonschema2pojo")
-public class Album  {
+public class Album implements Serializable {
 
 @SerializedName("IdAlbum")
 @Expose

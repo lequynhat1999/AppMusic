@@ -66,4 +66,15 @@ public interface DataClient { // interface dùng để gửi nhận các phươn
 
     @GET("ListChuDe.php")
     Call<List<ChuDe>> GetDataListChuDe();
+
+    @FormUrlEncoded
+    @POST("TheLoaiTheoChuDe.php")
+    Call<List<TheLoai>> GetDataTheLoaiTheoChuDe(@Field("idchude") String idchude);
+
+    @GET("ListAlbum.php")
+    Call<List<Album>> GetDataListAlbum();
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<WhiteList>> GetDataDanhSachBaiHatTheoAlbum(@Field("idalbum") String idalbum);
 }

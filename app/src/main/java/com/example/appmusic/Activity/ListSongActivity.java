@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.appmusic.Adapter.DanhSachBaiHatAdapter;
+import com.example.appmusic.Model.Album;
 import com.example.appmusic.Model.Playlist;
 import com.example.appmusic.Model.Quangcao;
 import com.example.appmusic.Model.TheLoai;
@@ -43,6 +44,7 @@ public class ListSongActivity extends AppCompatActivity {
     Quangcao quangcao;
     Playlist playlist;
     TheLoai theLoai;
+    Album album;
     CoordinatorLayout coordinatorLayout;
     CollapsingToolbarLayout collapsingToolbarLayout;
     Toolbar toolbar;
@@ -76,6 +78,32 @@ public class ListSongActivity extends AppCompatActivity {
             setValueInView(theLoai.getTenTheLoai(),theLoai.getHinhTheLoai());
             GetDataTheLoai(theLoai.getIdTheLoai());
         }
+
+        if(album !=null && !album.getTenAlbum().equals(""))
+        {
+            setValueInView(album.getTenAlbum(),album.getHinhAlbum());
+            GetDataAlbum(album.getIdAlbum());
+        }
+    }
+
+    private void GetDataAlbum(String idalbum) {
+        DataClient dataClient = APIUtils.getData();
+        Call<List<WhiteList>> callback = dataClient.GetDataDanhSachBaiHatTheoAlbum(idalbum);
+        callback.enqueue(new Callback<List<WhiteList>>() {
+            @Override
+            public void onResponse(Call<List<WhiteList>> call, Response<List<WhiteList>> response) {
+                arrSong = (ArrayList<WhiteList>) response.body();
+                danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(ListSongActivity.this,arrSong);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListSongActivity.this);
+                recyclerViewListSong.setLayoutManager(linearLayoutManager);
+                recyclerViewListSong.setAdapter(danhSachBaiHatAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<WhiteList>> call, Throwable t) {
+
+            }
+        });
     }
 
     private void GetDataTheLoai(String idtheloai) {
@@ -93,7 +121,6 @@ public class ListSongActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<WhiteList>> call, Throwable t) {
-
             }
         });
     }
@@ -159,6 +186,7 @@ public class ListSongActivity extends AppCompatActivity {
     private void init() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // hiển thị nút back
+        toolbar.setTitleTextColor(getResources().getColor(R.color.purple));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -196,6 +224,11 @@ public class ListSongActivity extends AppCompatActivity {
             if(intent.hasExtra("idtheloai"))
             {
                 theLoai = (TheLoai) intent.getSerializableExtra("idtheloai");
+            }
+
+            if(intent.hasExtra("album"))
+            {
+                album = (Album) intent.getSerializableExtra("album");
             }
         }
     }

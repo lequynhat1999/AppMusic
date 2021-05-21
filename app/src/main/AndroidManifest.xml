@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMusic"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.ListChuDeActivity"></activity>
+        <activity android:name=".Activity.ListAlbumActivity"></activity>
+        <activity android:name=".Activity.ListTheLoaiTheoChuDeActivity" />
+        <activity android:name=".Activity.ListChuDeActivity" />
         <activity android:name=".Activity.ListPlayListActivity" />
         <activity android:name=".Activity.ListSongActivity" />
         <activity android:name=".Activity.SignUpActivity" />

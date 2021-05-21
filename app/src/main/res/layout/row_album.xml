@@ -40,7 +40,7 @@
             android:id="@+id/textViewNameMusicalAlbum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="2dp"
             android:ellipsize="end"
             android:maxWidth="200dp"

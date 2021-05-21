@@ -6,61 +6,64 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.appmusic.Activity.ListTheLoaiTheoChuDeActivity;
-import com.example.appmusic.Model.ChuDe;
+import com.example.appmusic.Activity.ListSongActivity;
+import com.example.appmusic.Model.Album;
 import com.example.appmusic.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class ListChuDeAdapter extends  RecyclerView.Adapter<ListChuDeAdapter.ViewHolder> {
+public class ListAlbumAdapter extends RecyclerView.Adapter<ListAlbumAdapter.ViewHolder> {
     Context context;
-    ArrayList<ChuDe> arrChuDe;
+    ArrayList<Album> arrAlbum;
 
-    public ListChuDeAdapter(Context context, ArrayList<ChuDe> arrChuDe) {
+    public ListAlbumAdapter(Context context, ArrayList<Album> arrAlbum) {
         this.context = context;
-        this.arrChuDe = arrChuDe;
+        this.arrAlbum = arrAlbum;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View view = layoutInflater.inflate(R.layout.row_list_chu_de,parent,false);
+        View view = layoutInflater.inflate(R.layout.row_list_album,parent,false);
 
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ChuDe chuDe = arrChuDe.get(position);
-        Picasso.with(context).load(chuDe.getHinhChuDe()).into(holder.imageViewListChuDe);
+        Album album = arrAlbum.get(position);
+        Picasso.with(context).load(album.getHinhAlbum()).into(holder.imageViewListAlbum);
+        holder.texViewNameListAlbum.setText(album.getTenAlbum());
     }
 
     @Override
     public int getItemCount() {
-        return arrChuDe.size();
+        return arrAlbum.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
-        ImageView imageViewListChuDe;
+        ImageView imageViewListAlbum;
+        TextView texViewNameListAlbum;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageViewListChuDe = itemView.findViewById(R.id.imageViewListChuDe);
-            imageViewListChuDe.setOnClickListener(new View.OnClickListener() {
+            imageViewListAlbum = itemView.findViewById(R.id.imageViewListAlbum);
+            texViewNameListAlbum = itemView.findViewById(R.id.texViewNameListAlbum);
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, ListTheLoaiTheoChuDeActivity.class);
-                    intent.putExtra("chude",arrChuDe.get(getPosition()));
+                    Intent intent = new Intent(context, ListSongActivity.class);
+                    intent.putExtra("album",arrAlbum.get(getPosition()));
                     context.startActivity(intent);
                 }
             });
-
         }
     }
 }

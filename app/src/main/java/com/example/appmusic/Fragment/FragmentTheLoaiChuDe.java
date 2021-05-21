@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.appmusic.Activity.ListChuDeActivity;
 import com.example.appmusic.Activity.ListSongActivity;
+import com.example.appmusic.Activity.ListTheLoaiTheoChuDeActivity;
 import com.example.appmusic.Model.ChuDe;
 import com.example.appmusic.Model.TheLoai;
 import com.example.appmusic.Model.TheLoaiChuDe;
@@ -93,6 +94,16 @@ public class FragmentTheLoaiChuDe extends Fragment {
                     cardView.setLayoutParams(layoutParams); //set kích thước cho cardView
                     cardView.addView(imageView); //truyền imageView vào trong cardView
                     linearLayout.addView(cardView); // add cardView vào trong ViewGroup
+
+                    int finalI = i;
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getActivity(), ListTheLoaiTheoChuDeActivity.class);
+                            intent.putExtra("chude",arrChuDe.get(finalI));
+                            startActivity(intent);
+                        }
+                    });
 
                 }
 
