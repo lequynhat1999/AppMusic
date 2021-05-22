@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.appmusic.Adapter.MainViewPageAdapter;
@@ -14,22 +15,30 @@ import com.example.appmusic.R;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
-//    TextView textViewInfo;
     TabLayout tabLayout;
     ViewPager viewPager;
+    TextView textViewLogout,textViewInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        textViewInfo = (TextView) findViewById(R.id.textViewInfo);
-
-//        Intent intent = getIntent();
-//        String name = intent.getStringExtra("fullname");
-//        textViewInfo.setText(name);
-
         Mapping();
         Init();
+
+        textViewInfo = (TextView) findViewById(R.id.textViewInfo);
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("fullname");
+        textViewInfo.setText("Xin chào, " + name + " | ");
+
+        textViewLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent1);
+            }
+        });
+
+
     }
 
     private void Init() { // đưa các fragment vào trong viewpager và set lên tablayout
@@ -47,5 +56,7 @@ public class MainActivity extends AppCompatActivity {
     {
         tabLayout = (TabLayout) findViewById(R.id.myTabLayout);
         viewPager = (ViewPager) findViewById(R.id.myViewPager);
+        textViewLogout = (TextView) findViewById(R.id.textViewLogout);
+        textViewInfo = (TextView) findViewById(R.id.textViewInfo);
     }
 }

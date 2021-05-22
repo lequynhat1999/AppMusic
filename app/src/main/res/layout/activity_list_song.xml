@@ -47,16 +47,19 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
-        app:layout_behavior="@string/bottom_sheet_behavior"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#a845de"
+        android:scaleType="fitXY"
+        app:fabSize="normal"
+        android:src="@drawable/iconfloatingactionbutton"
         app:layout_anchor="@id/appbarLayout"
         app:layout_anchorGravity="bottom|center"
-        android:id="@+id/floatingActionButton"
-        app:fabSize="normal"
-        android:scaleType="fitXY"
-        android:src="@drawable/iconfloatingactionbutton"
-        android:backgroundTint="#a845de"
-        android:layout_height="wrap_content"/>
+        app:layout_behavior="@string/bottom_sheet_behavior" >
+
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
     <androidx.core.widget.NestedScrollView
         android:layout_marginTop="30dp"

@@ -10,6 +10,7 @@
         android:id="@+id/myViewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="45dp"
         android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,21 +33,40 @@
         app:tabSelectedTextColor="#a845de"
         app:tabTextColor="@color/black" />
 
-    <!--    <TextView-->
-<!--        android:id="@+id/textViewInfo"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="308dp"-->
-<!--        android:layout_marginLeft="308dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:layout_marginEnd="21dp"-->
-<!--        android:layout_marginRight="21dp"-->
-<!--        android:drawableEnd="@drawable/ic_user"-->
-<!--        android:drawableRight="@drawable/ic_user"-->
-<!--        android:text="TextView"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="1.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <TextView
+        android:id="@+id/textViewLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:textColor="@color/black"
+
+        android:text="Đăng Xuất"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/textViewLogout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:src="@drawable/zingmp3icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

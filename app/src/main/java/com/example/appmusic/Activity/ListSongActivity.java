@@ -97,6 +97,8 @@ public class ListSongActivity extends AppCompatActivity {
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListSongActivity.this);
                 recyclerViewListSong.setLayoutManager(linearLayoutManager);
                 recyclerViewListSong.setAdapter(danhSachBaiHatAdapter);
+                eventClick();
+
             }
 
             @Override
@@ -117,7 +119,9 @@ public class ListSongActivity extends AppCompatActivity {
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListSongActivity.this);
                 recyclerViewListSong.setLayoutManager(linearLayoutManager);
                 recyclerViewListSong.setAdapter(danhSachBaiHatAdapter);
-                }
+                eventClick();
+
+            }
 
             @Override
             public void onFailure(Call<List<WhiteList>> call, Throwable t) {
@@ -136,6 +140,8 @@ public class ListSongActivity extends AppCompatActivity {
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListSongActivity.this);
                 recyclerViewListSong.setLayoutManager(linearLayoutManager);
                 recyclerViewListSong.setAdapter(danhSachBaiHatAdapter);
+                eventClick();
+
 
             }
 
@@ -157,6 +163,8 @@ public class ListSongActivity extends AppCompatActivity {
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListSongActivity.this);
                 recyclerViewListSong.setLayoutManager(linearLayoutManager);
                 recyclerViewListSong.setAdapter(danhSachBaiHatAdapter);
+                eventClick();
+
 
 
             }
@@ -195,6 +203,7 @@ public class ListSongActivity extends AppCompatActivity {
         });
         collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT); // hiển thị text bg
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.TRANSPARENT); // hiển thị text khi kéo view lên
+        floatingActionButton.setEnabled(false);
 
     }
 
@@ -231,5 +240,18 @@ public class ListSongActivity extends AppCompatActivity {
                 album = (Album) intent.getSerializableExtra("album");
             }
         }
+    }
+
+    private  void eventClick()
+    {
+        floatingActionButton.setEnabled(true);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListSongActivity.this,PlayMusicActivity.class);
+                intent.putExtra("cacbaihat",arrSong);
+                startActivity(intent);
+            }
+        });
     }
 }
