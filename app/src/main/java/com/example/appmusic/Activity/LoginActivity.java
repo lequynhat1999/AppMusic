@@ -3,10 +3,12 @@ package com.example.appmusic.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,11 +30,19 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
     TextView textViewCreatAcc;
     String username,password;
+    CheckBox checkBoxLogin;
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Mapping();
+
+        sharedPreferences = getSharedPreferences("dataLogin",MODE_PRIVATE); // name: tạo 1 cái name và lưu vào bộ nhớ của ứng dụng
+
+        editTextLoginUsername.setText(sharedPreferences.getString("user",""));
+        editTextLoginPassword.setText(sharedPreferences.getString("pass",""));
+        checkBoxLogin.setChecked(sharedPreferences.getBoolean("checked",false));
 
         textViewCreatAcc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +70,26 @@ public class LoginActivity extends AppCompatActivity {
                             {
 
                                 Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                                if(checkBoxLogin.isChecked())
+                                {
+                                    SharedPreferences.Editor editor = sharedPreferences.edit(); // muốn editor file nào thì gọi vào
+                                    editor.putString("user",username);
+                                    editor.putString("pass",password);
+                                    editor.putBoolean("checked",true);
+                                    editor.commit(); // xác nhận việc lưu các giá trị trên
+
+                                }
+                                else
+                                {
+                                    SharedPreferences.Editor editorr = sharedPreferences.edit();
+                                    editorr.remove("user");
+                                    editorr.remove("pass");
+                                    editorr.remove("checked");
+                                    editorr.commit();
+                                }
+
+
+
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.putExtra("fullname",arrUser.get(0).getName());
                                 startActivity(intent);
@@ -83,6 +113,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void Mapping()
     {
+        checkBoxLogin = (CheckBox) findViewById(R.id.checkBoxLogin);
         editTextLoginUsername = (EditText) findViewById(R.id.editTextLoginUsername);
         editTextLoginPassword = (EditText) findViewById(R.id.editTextLoginPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
