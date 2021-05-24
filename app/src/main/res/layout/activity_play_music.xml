@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Activity.PlayMusicActivity"
     android:orientation="vertical"
-    android:background="#B833CF"
+    android:background="#B673C1"
     android:weightSum="10">
 
     <androidx.appcompat.widget.Toolbar
@@ -75,8 +75,8 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="5dp"
                 android:id="@+id/imageBtnShuffle"
@@ -84,8 +84,8 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/ics"/>
             <ImageButton
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginRight="15dp"
                 android:id="@+id/imageBtnPre"
                 android:background="@null"
@@ -93,8 +93,8 @@
                 android:src="@drawable/iconpreview"/>
 
             <ImageButton
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginRight="15dp"
                 android:id="@+id/imageBtnPlay"
                 android:background="@null"
@@ -102,8 +102,8 @@
                 android:src="@drawable/iconplay"/>
 
             <ImageButton
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginRight="15dp"
                 android:id="@+id/imageBtnNext"
                 android:background="@null"
@@ -111,8 +111,8 @@
                 android:src="@drawable/iconnext"/>
 
             <ImageButton
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginRight="15dp"
                 android:id="@+id/imageBtnRepeat"
                 android:background="@null"

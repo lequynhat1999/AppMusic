@@ -85,4 +85,8 @@ public interface DataClient { // interface dùng để gửi nhận các phươn
     @FormUrlEncoded
     @POST("UpdateDislike.php")
     Call<String> UpdateDislike(@Field("luotthichh") String luotthichh, @Field("idbaihatt") String idbaihatt);
+
+    @FormUrlEncoded
+    @POST("search.php")
+    Call<List<WhiteList>> GetSearchSong(@Field("key") String key);
 }
