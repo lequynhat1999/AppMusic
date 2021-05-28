@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(arrUser.size() > 0)
                             {
 
-                                Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                                 if(checkBoxLogin.isChecked())
                                 {
                                     SharedPreferences.Editor editor = sharedPreferences.edit(); // muốn editor file nào thì gọi vào
@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                                 }
 
 
-
+                                Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.putExtra("fullname",arrUser.get(0).getName());
                                 startActivity(intent);

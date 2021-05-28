@@ -96,6 +96,10 @@ public class ListSongActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<WhiteList>> call, Response<List<WhiteList>> response) {
                 arrSong = (ArrayList<WhiteList>) response.body();
+                for (int i = 0; i < arrSong.size() ; i++) {
+                    String[] strings = arrSong.get(i).getLinkBaiHat().split("%20");
+                    arrSong.get(i).setLinkBaiHat(strings[0]);
+                }
                 danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(ListSongActivity.this,arrSong);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListSongActivity.this);
                 recyclerViewListSong.setLayoutManager(linearLayoutManager);
@@ -118,6 +122,10 @@ public class ListSongActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<WhiteList>> call, Response<List<WhiteList>> response) {
                 arrSong = (ArrayList<WhiteList>) response.body();
+                for (int i = 0; i < arrSong.size() ; i++) {
+                    String[] strings = arrSong.get(i).getLinkBaiHat().split("%20");
+                    arrSong.get(i).setLinkBaiHat(strings[0]);
+                }
                 danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(ListSongActivity.this,arrSong);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListSongActivity.this);
                 recyclerViewListSong.setLayoutManager(linearLayoutManager);
@@ -139,6 +147,10 @@ public class ListSongActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<WhiteList>> call, Response<List<WhiteList>> response) {
                 arrSong = (ArrayList<WhiteList>) response.body();
+                for (int i = 0; i < arrSong.size() ; i++) {
+                    String[] strings = arrSong.get(i).getLinkBaiHat().split("%20");
+                    arrSong.get(i).setLinkBaiHat(strings[0]);
+                }
                 danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(ListSongActivity.this,arrSong);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListSongActivity.this);
                 recyclerViewListSong.setLayoutManager(linearLayoutManager);
@@ -162,6 +174,10 @@ public class ListSongActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<WhiteList>> call, Response<List<WhiteList>> response) {
                 arrSong = (ArrayList<WhiteList>) response.body();
+                for (int i = 0; i < arrSong.size() ; i++) {
+                    String[] strings = arrSong.get(i).getLinkBaiHat().split("%20");
+                    arrSong.get(i).setLinkBaiHat(strings[0]);
+                }
                 danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(ListSongActivity.this,arrSong);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListSongActivity.this);
                 recyclerViewListSong.setLayoutManager(linearLayoutManager);

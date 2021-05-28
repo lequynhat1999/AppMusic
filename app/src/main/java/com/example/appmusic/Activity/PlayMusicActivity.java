@@ -363,16 +363,16 @@ public class PlayMusicActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String baihat) {
             try {
-            mediaPlayer = new MediaPlayer();
-            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC); // play ca khúc dưới dạng online
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    mediaPlayer.stop();
-                    mediaPlayer.reset();
-                }
-            });
-            mediaPlayer.setDataSource(baihat); // khởi tạo dữ liệu từ đường link của ca khúc
+                mediaPlayer = new MediaPlayer();
+                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC); // play ca khúc dưới dạng online
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        mediaPlayer.stop();
+                        mediaPlayer.reset();
+                    }
+                });
+                mediaPlayer.setDataSource(baihat); // khởi tạo dữ liệu từ đường link của ca khúc
                 mediaPlayer.prepare(); // gọi hàm này để chuẩn bị cho việc play
             } catch (IOException e) {
                 e.printStackTrace();
@@ -456,18 +456,18 @@ public class PlayMusicActivity extends AppCompatActivity {
 
                     }
 
-                imageBtnPre.setClickable(false);
-                imageBtnNext.setClickable(false);
-                Handler handler1 = new Handler();
-                handler1.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        imageBtnPre.setClickable(true);
-                        imageBtnNext.setClickable(true);
-                    }
-                },2000);
-                next = false;
-                handler1.removeCallbacks(this); // xoá sự kiện lắng nghe này để tạo ra thread mới
+                    imageBtnPre.setClickable(false);
+                    imageBtnNext.setClickable(false);
+                    Handler handler1 = new Handler();
+                    handler1.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            imageBtnPre.setClickable(true);
+                            imageBtnNext.setClickable(true);
+                        }
+                    },2000);
+                    next = false;
+                    handler1.removeCallbacks(this); // xoá sự kiện lắng nghe này để tạo ra thread mới
 
                 }
                 else
