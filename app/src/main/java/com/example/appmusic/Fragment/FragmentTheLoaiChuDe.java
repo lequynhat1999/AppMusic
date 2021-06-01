@@ -84,7 +84,7 @@ public class FragmentTheLoaiChuDe extends Fragment {
                 {
                     CardView cardView = new CardView(getActivity()); //view này bo xung quanh
                     cardView.setRadius(10);
-                    ImageView imageView = new ImageView(getActivity());
+                    ImageView imageView = new ImageView(getActivity()); // đưa hình ảnh vào trong cardView
                     imageView.setScaleType(ImageView.ScaleType.FIT_XY);// set lại kích cỡ của ảnh giãn đều
 
                     if(arrChuDe.get(i).getHinhChuDe() != null) // kiểm tra xem mảng có chứa giá trị k

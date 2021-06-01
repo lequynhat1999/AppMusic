@@ -59,7 +59,7 @@ public class BannerAdapter extends PagerAdapter {
         textViewContent.setText(arrListBanner.get(position).getNoiDung());
 
         ConstraintLayout constraintLayout = view.findViewById(R.id.constraintBottom);
-        constraintLayout.setAlpha(0.6f);
+        constraintLayout.setAlpha(0.6f); // set độ mờ cho bg
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override

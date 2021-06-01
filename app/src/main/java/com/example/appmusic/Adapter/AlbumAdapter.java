@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> {
+public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> { // trong adapter truyền vào class chứa giá trị ánh xạ của viewHolder
     Context context;
     ArrayList<Album> arrAlbum;
 
@@ -29,18 +29,18 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) { //func dùng để gắn layout, gán giá trị
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) { //func dùng để gắn layout
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.row_album,parent,false); // gán layout và thực hiện gán giá trị
+        View view = inflater.inflate(R.layout.row_album,parent,false); // gán layout
 
 
-        return new ViewHolder(view);
+        return new ViewHolder(view); // sau khi trả về biến view, biến view này chính là itemView trong ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {// gán giá trị
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {// sau khi thực hiện ánh xạ các view, thì gán giá trị cho view
         Album album = arrAlbum.get(position);
-        holder.textViewNameMusicalAlbum.setText("Ca sĩ thực hiện: " + album.getTenCaSiAlbum());
+        holder.textViewNameMusicalAlbum.setText("Ca sĩ thực hiện: " + album.getTenCaSiAlbum()); // view được giữ trong viewHolder, nên khi muốn lấy ra sd thì gọi holder
         holder.textViewNameAlbum.setText(album.getTenAlbum());
         Picasso.with(context).load(album.getHinhAlbum()).into(holder.imageViewAlbum);
 
@@ -51,6 +51,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         return arrAlbum.size() ;
     }
 
+    // trong listView có class ViewHolder để giữ lại các ánh xạ, trong recyclerView những view này phải nằm trong ViewHolder để thực hiện gán ánh xạ
     public class ViewHolder extends RecyclerView.ViewHolder
     {
         ImageView imageViewAlbum;

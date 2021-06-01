@@ -106,7 +106,7 @@ public class Fragment_Tim_Kiem extends Fragment {
                 }
                 else
                 {
-                    textViewNull.setVisibility(View.VISIBLE); // ẩn đi
+                    textViewNull.setVisibility(View.VISIBLE);
                     recyclerViewSearch.setVisibility(View.GONE);
                 }
             }

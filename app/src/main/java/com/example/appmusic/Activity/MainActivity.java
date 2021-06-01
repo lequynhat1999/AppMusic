@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         mainViewPageAdapter.addFragment(new Fragment_Trang_Chu(), "Trang chủ");
         mainViewPageAdapter.addFragment(new Fragment_Tim_Kiem(),"Tìm kiếm");
         viewPager.setAdapter(mainViewPageAdapter);
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager); // lấy viewpager set lên cho tabLayout
         tabLayout.getTabAt(0).setIcon(R.drawable.icontrangchu);
         tabLayout.getTabAt(1).setIcon(R.drawable.iconsearch);
 

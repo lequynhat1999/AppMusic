@@ -21,8 +21,8 @@ public interface DataClient { // interface dùng để gửi nhận các phươn
 
     @FormUrlEncoded // sử dụng phương thức post, gửi dữ liệu lên dưới dạng chuỗi
     @POST("insert.php") // gán vào đuôi file php
-    Call<String> InsertData(@Field("fullname") String fullname // @Field để truyền dữ liệu lên cho server
-                            ,@Field("username") String username
+    Call<String> InsertData(@Field("fullname") String fullname // @Field để truyền dữ liệu lên cho server // call: server gửi dữ liệu về dưới dạng kiểu dữ liệu gì thì nhận dạng đó
+                            ,@Field("username") String username // cái key mà server nhận nên phải truyền giống với bên api gửi lên
                             ,@Field("password") String password
                             ,@Field("email") String email); // tạo 1 phương thức post để gửi dữ liệu lên server
 

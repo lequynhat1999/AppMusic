@@ -32,7 +32,7 @@ public class FragmentBanner  extends Fragment {
     ViewPager viewPager;
     CircleIndicator circleIndicator;
     BannerAdapter bannerAdapter;
-    Runnable runnable;
+    Runnable runnable; // để quản lý tiến trình
     Handler handler;
     int currentItem; // gán giá trị của từng page, phục vụ cho việc load page tiếp theo
 
@@ -55,7 +55,7 @@ public class FragmentBanner  extends Fragment {
     private void GetData() {
         DataClient dataClient = APIUtils.getData(); // khởi tạo dataClient và khởi tạo những phương thức để đẩy lên
         Call<List<Quangcao>> calback = dataClient.GetDataBanner(); // khi gửi lên thì gửi phương thức GetDataBanner
-        calback.enqueue(new Callback<List<Quangcao>>() {
+        calback.enqueue(new Callback<List<Quangcao>>() { // khi thực hiện việc gửi lên xong thì dữ liệu sẽ trả về cho biến callback
             @Override
             public void onResponse(Call<List<Quangcao>> call, Response<List<Quangcao>> response) {
                 ArrayList<Quangcao> arrbanner = (ArrayList<Quangcao>) response.body();
@@ -65,7 +65,7 @@ public class FragmentBanner  extends Fragment {
                 handler = new Handler();
                 runnable = new Runnable() { // lắng nghe và thực hiện hành động khi mà handler gọi
                     @Override
-                    public void run() {
+                    public void run() { // để tự dộng chuyển viewPager
                         currentItem = viewPager.getCurrentItem(); // kiểm tra xem hiện tại đang ở pager nào
                         currentItem ++; // mỗi khi xem 1 pager, biến currentItem tăng lên 1 để có thể chuyển sang pager tiếp theo
                         if(currentItem >= viewPager.getAdapter().getCount()) // khi đến pager cuối cùng thì set cho = 0
@@ -73,10 +73,10 @@ public class FragmentBanner  extends Fragment {
                             currentItem = 0;
                         }
                         viewPager.setCurrentItem(currentItem,true); // mỗi lần tăng giá trị lên, set lại giá trị cho viewPager
-                        handler.postDelayed(runnable,3000);
+                        handler.postDelayed(runnable,4000); // sau 4s thì chạy 1 lần
                     }
                 };
-                handler.postDelayed(runnable,3000);
+                handler.postDelayed(runnable,4000);
             }
 
             @Override

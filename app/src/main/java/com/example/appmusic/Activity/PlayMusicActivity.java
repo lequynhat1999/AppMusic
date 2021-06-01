@@ -64,15 +64,15 @@ public class PlayMusicActivity extends AppCompatActivity {
 
     private void eventClick() {
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        handler.postDelayed(new Runnable() { // lắng nghe khi có ca khúc được phát thì sẽ gán img cho đĩa nhạc
             @Override
             public void run() {
-                if(viewPagerPlayListMusic.getItem(1) != null)
+                if(viewPagerPlayListMusic.getItem(1) != null) // kiểm tra xem  fragment đã get được dữ liệu ra chưa
                 {
                     if (arrSong.size() > 0)
                     {
                         fragmentDiaNhac.PlayNhac(arrSong.get(0).getHinhBaiHat());
-                        handler.removeCallbacks(this);
+                        handler.removeCallbacks(this); // gán ảnh được r thì sẽ xóa đi những ảnh cũ
                     }
                     else
                     {
@@ -328,9 +328,9 @@ public class PlayMusicActivity extends AppCompatActivity {
         viewPagerPlayListMusic.AddFragment(fragmentDiaNhac);
         viewPagerPlayMusic.setAdapter(viewPagerPlayListMusic);
 
-        fragmentDiaNhac = (FragmentDiaNhac) viewPagerPlayListMusic.getItem(1);
+        fragmentDiaNhac = (FragmentDiaNhac) viewPagerPlayListMusic.getItem(1); // gán img lên fragmentDiaNhac
 
-        if(arrSong.size() > 0)
+        if(arrSong.size() > 0) // check arrSong > 0 thì sẽ play bài đầu tiên
         {
             getSupportActionBar().setTitle(arrSong.get(0).getTenBaiHat());
             new PlayMp3().execute(arrSong.get(0).getLinkBaiHat());
@@ -365,10 +365,10 @@ public class PlayMusicActivity extends AppCompatActivity {
             try {
                 mediaPlayer = new MediaPlayer();
                 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC); // play ca khúc dưới dạng online
-                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { //
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        mediaPlayer.stop();
+                        mediaPlayer.stop(); // khi nhảy vào mediaPlayer thì sẽ stop và reset lại tránh việc bị lỗi
                         mediaPlayer.reset();
                     }
                 });

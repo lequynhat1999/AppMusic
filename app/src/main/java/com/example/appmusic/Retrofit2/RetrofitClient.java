@@ -13,11 +13,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static Retrofit retrofit = null;
+    private static Retrofit retrofit = null; // khai báo biến của retrofit
 //    khi retrofit muốn khởi tạo, nó cần phải có 1 url để nó gửi dữ liệu lên.
     public static Retrofit getClient(String baseurl) // trả về cấu hình sau khi set up cho retrofit
     {
-        OkHttpClient builder = new OkHttpClient.Builder() // tương tác với server thông qua okhttp
+        OkHttpClient builder = new OkHttpClient.Builder() // quản lý việc tương tác với server thông qua okhttp
                 .readTimeout(5000, TimeUnit.MILLISECONDS) // thời gian đọc đợi quá lâu thì sẽ ngắt
                 .writeTimeout(5000,TimeUnit.MILLISECONDS) // thời gian viết đợi quá lâu thì sẽ ngắt
                 .connectTimeout(10000,TimeUnit.MILLISECONDS) // thời gian đợi trước khi ngắt việc kết nối
